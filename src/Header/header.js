@@ -1,22 +1,24 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Logo from "../imagens/dell.png"
 import Lupa from "../imagens/search.png"
 import styled from 'styled-components'
 
 const ContainerHeader = styled.header `
+position: fixed;
 backgorund-color: rgba(108, 122, 137 / 1);
-backdrop-filter: blur(15px);
+backdrop-filter: blur(10px);
 display: flex;
 justify-content: space-between;
 align-items: center;
 width: 100%;
 height: 13vh;
-color: white;
+font-family: 'Open Sans', sans-serif;
 ul {
     display: flex;
 justify-content: space-evenly;
 list-style: none;
 font-size: 1.5rem;
+color: white;
 }
 li {
     cursor: pointer;
