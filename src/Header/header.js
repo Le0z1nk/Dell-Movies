@@ -18,7 +18,7 @@ ul {
 justify-content: space-evenly;
 list-style: none;
 font-size: 1.5rem;
-color: white;
+color: #ffffff;
 }
 li {
     cursor: pointer;
@@ -43,6 +43,9 @@ width: 3.5vw;
 padding-top: 10px;
 cursor: pointer;
 `
+const Login = styled.li `
+color: #f6f6f6;
+`
 
 export default function Header() {
     return(
@@ -57,7 +60,7 @@ export default function Header() {
         <NavOpcoes>
             <ul>
                 <li> <Search src={Lupa} alt="lupa" /> </li>
-                <li>Login</li>
+                <Login>Login</Login>
             </ul>
         </NavOpcoes>
         </ContainerHeader>

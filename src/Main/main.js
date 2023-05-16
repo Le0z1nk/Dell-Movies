@@ -7,14 +7,14 @@ const MainStyle = styled.main `
 background-image: url(${props => props.back});
 background-repeat: no-repeat;
 background-size: 100% 100%;
-height: 100vh;
+height: 95vh;
 `
 const ContainerMap = styled.section `
 position: relative;
    top: 16rem;
    left: 7rem;
    font-family: 'Open Sans', sans-serif;
-   color: white;
+   color: #f6f6f6;
    width: 70vw;
    h1 {
        font-size: 2.5rem;
@@ -35,19 +35,22 @@ position: relative;
    button {
        font-size: 1.5rem;
        width: 20vw;
-       height: 7vh;
+       height: 9vh;
        margin-top: 2rem;
-       border-radius: 20px;
+       border-radius: 25px;
        border: none;
        color: white;
        cursor: pointer;
+       font-weight: 600;
    }
 `
 const Assistir = styled.button `
 background-color: #d53a00;
+color: #ffffff;
 `
 const Trailer = styled.button `
 background-color: #717171;
+color: #f6f6f6;
 margin-left: 2rem;
 `
 
