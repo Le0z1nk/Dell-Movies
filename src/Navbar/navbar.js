@@ -50,7 +50,7 @@ export default function NavBar() {
                 <li>Família</li>
             </ul>
             <SearchBar>
-                <img onClick={() => setMode(!mode)} src={Lupa} alt="" />
+                <img onClick={() => setMode(!mode)} src={Lupa} alt="lupa" />
                 <Caixa show={mode === false ? 'none' : 'initial'} />
             </SearchBar>
         </Nav>

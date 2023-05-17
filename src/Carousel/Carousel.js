@@ -12,12 +12,26 @@ img {
     width: 90%;
     cursor: pointer;
 }
+button.rec-arrow {
+    width: 4.2vw;
+    height: 9vh;
+    background-color: #000000;
+    color: #707070;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 1.5rem;
+}
+button.rec-dot {
+    display: none;
+}
 `
 const CarouselTitle = styled.h2 `
 color: #ffffff;
 margin-left: 3.5rem;
 font-size: 2rem;
-height: 15vh;;
+height: 15vh;
 display: flex;
 align-items: center;
 `
@@ -47,10 +61,10 @@ export default function CarouselComponent() {
     return(
         <ContainerCarousel>
             <CarouselTitle>Últimos lançamentos</CarouselTitle>
-            <Carousel itemsToShow={5} itemsToScroll={2}>
+            <Carousel itemsToShow={5} itemsToScroll={3}>
                 {filmes.map((item)=>(
                     <div>
-                        <img src={item.image} alt="filmes" />
+                        <img src={item.image} alt={item.title} />
                         <CarouselName>{item.title}</CarouselName>
                     </div>
                 ))}

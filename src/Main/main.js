@@ -87,7 +87,7 @@ export default function Main() {
                         <h2><img src={Estrela} alt="estrela" /> {item.vote_average}/10</h2>
                         <h4>{item.overview}</h4>
                         <Assistir>  ▶  Assistir agora</Assistir>
-                        <Trailer>Trailer</Trailer>
+                        <Trailer> 🎞 Trailer</Trailer>
                     </ContainerMap>
                 ))}
                 
