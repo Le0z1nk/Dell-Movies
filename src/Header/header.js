@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const ContainerHeader = styled.header `
 position: fixed;
 backgorund-color: rgba(108, 122, 137 / 1);
-backdrop-filter: blur(10px);
+backdrop-filter: blur(15px);
 display: flex;
 justify-content: space-between;
 align-items: center;
@@ -36,6 +36,9 @@ const NavOpcoes = styled.nav `
 width: 15vw;
 ul {
     align-items: center;
+    :hover {
+    font-weight: 600;
+}
 }
 `
 const Search = styled.img `
@@ -45,6 +48,7 @@ cursor: pointer;
 `
 const Login = styled.li `
 color: #f6f6f6;
+
 `
 
 export default function Header() {

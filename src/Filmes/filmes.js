@@ -38,15 +38,48 @@ text-align: center;
 
 export default function FilmesComponent() {
     const [filmes, setFilmes] = useState([])
-    const [input, setInput] = useState('')
-    const [filtrados, setFiltrados] = useState([])
-
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
-        getFilmes()
-        filtrar()
-    }, [input, filmes, filtrados])
+        let isMounted = true; // Flag para rastrear se o componente está montado
+    
+        const fetchData = async () => {
+          if (!loading) { // Verifica se a requisição já está em andamento
+            try {
+              setLoading(true); // Define o estado de carregamento como verdadeiro
+    
+              const response = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=245d127d88e8f74e03ac81ed84b075f2&language=pt-BR&page=1'); // Realiza a requisição
+    
+              if (isMounted) {
+                setFilmes(response.data.results); // Atualiza o estado dos dados
+                console.log(response.data.results)
+              }
+            }
+            catch (error) {
+                console.error(error);
+              } finally {
+                setLoading(false); // Define o estado de carregamento como falso, independentemente do resultado da requisição
+              }
+            }
+          };
+      
+          fetchData();
+      
+          return () => {
+            isMounted = false; // Define a flag para false quando o componente é desmontado
+          };
+        }, []); // O segundo argumento vazio [] garante que o useEffect seja executado apenas uma vez durante a montagem do componente
 
-    const getFilmes = async() => {
+    /* const [input, setInput] = useState('') */
+    /* const [filtrados, setFiltrados] = useState([]) */
+
+    /* useEffect(() => {
+        getFilmes()
+        
+       
+    }, []) */
+
+   /*  const getFilmes = async(e) => {
+        
         await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=245d127d88e8f74e03ac81ed84b075f2&language=pt-BR&page=1').then(resposta => {
             const allApi = resposta.data.results.map((item) => {
               return{
@@ -54,28 +87,31 @@ export default function FilmesComponent() {
                  image: `https://image.tmdb.org/t/p/w500/${item.poster_path}`
               }
             })
-            setFilmes(allApi)
+            setFilmes(oldList => [...oldList, allApi])
+            
+            
         }).catch(error => alert(`desculpe, você teve um erro de requisição ${error}`))
-    }
-    const filtrar = () => {
+        e.preventDefault()
+    } */
+    /* const filtrar = () => {
         const filtros = filmes.filter((item) => {
-            if (item.title.toLowerCase().includes(input.toLocaleLowerCase())){
+            if (item.title.toLowerCase().includes(input.toLowerCase())){
                 return true
             }else{
                 return false
             }
         })
         setFiltrados(filtros)
-    }
+    } */
 
     return(
         <ContainerFilmes>
             <BoxTitle>
             <FilmesTitle>Em Alta</FilmesTitle> 
             </BoxTitle>
-            {filtrados.map((item) => (
+            {filmes.map((item) => (
                 <BoxFilmes>
-                    <img src={item.image} alt={item.title} />
+                    <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title} loading="lazy" />
                     <FilmesName>{item.title}</FilmesName>
                 </BoxFilmes>
             ))}

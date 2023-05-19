@@ -13,11 +13,15 @@ ul {
     display: flex;
     list-style: none;
     width: 95%;
-    justify-content: space-evenly;
+    justify-content: space-evenly; 
+    :hover {
+        font-weight: 600;
+    }
 }
 li {
     font-size: 1.3rem;
     cursor: pointer;
+   
 }
 `
 const SearchBar = styled.section `

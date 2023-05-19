@@ -11,7 +11,7 @@ height: 95vh;
 `
 const ContainerMap = styled.section `
 position: relative;
-   top: 16rem;
+   top: 11rem;
    left: 7rem;
    font-family: 'Open Sans', sans-serif;
    color: #f6f6f6;
@@ -47,6 +47,7 @@ position: relative;
 const Assistir = styled.button `
 background-color: #d53a00;
 color: #ffffff;
+
 `
 const Trailer = styled.button `
 background-color: #717171;
@@ -59,8 +60,39 @@ margin-left: 2rem;
 export default function Main() {
     const [filmes, setFilmes] = useState([])
     const [fundo, setFundo] = useState([])
-
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
+        let isMounted = true; // Flag para rastrear se o componente está montado
+    
+        const fetchData = async () => {
+          if (!loading) { // Verifica se a requisição já está em andamento
+            try {
+              setLoading(true); // Define o estado de carregamento como verdadeiro
+    
+              const response = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=245d127d88e8f74e03ac81ed84b075f2&language=pt-BR&page=1'); // Realiza a requisição
+    
+              if (isMounted) {
+                setFilmes(response.data.results);
+                setFundo(filmes.slice(0,1)) // Atualiza o estado dos dados
+                console.log(response.data.results)
+              }
+            }
+            catch (error) {
+                console.error(error);
+              } finally {
+                setLoading(false); // Define o estado de carregamento como falso, independentemente do resultado da requisição
+              }
+            }
+          };
+      
+          fetchData();
+      
+          return () => {
+            isMounted = false; // Define a flag para false quando o componente é desmontado
+          };
+        }, []);
+       
+    /* useEffect(() => {
         getFilmes()
     })
 
@@ -78,9 +110,9 @@ export default function Main() {
             
 
         }).catch(error => alert(`desculpe, você teve um erro de requisição ${error}`))
-    }
+    } */
     return(
-        <MainStyle back={fundo.map(item => item.poster)}>
+        <MainStyle back={fundo.map(item => `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`)}>
                 {fundo.map(item => (
                     <ContainerMap>
                         <h1>{item.title}</h1>

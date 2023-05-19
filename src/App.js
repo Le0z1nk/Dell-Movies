@@ -19,9 +19,9 @@ export default function App() {
     <>
     <GlobalStyle />
       <Header />
-      <Main />
+      <Main /> 
       <NavBar />
-      <CarouselComponent />
+       <CarouselComponent /> 
       <FilmesComponent />
     </>
   )
