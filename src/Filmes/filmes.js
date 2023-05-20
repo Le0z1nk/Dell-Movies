@@ -20,7 +20,7 @@ display: flex;
 align-items: center;
 `
 const BoxFilmes = styled.section `
-width: 20%;
+width: 19.7vw;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -30,7 +30,7 @@ img {
 `
 const FilmesName = styled.h3 `
 color: #f6f6f6;
-font-size: 19px;
+font-size: 18px;
 margin-top: 0.4rem;
 text-align: center;
 

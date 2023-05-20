@@ -7,11 +7,11 @@ const MainStyle = styled.main `
 background-image: url(${props => props.back});
 background-repeat: no-repeat;
 background-size: 100% 100%;
-height: 95vh;
+height: 100vh;
 `
 const ContainerMap = styled.section `
 position: relative;
-   top: 11rem;
+   top: 13rem;
    left: 7rem;
    font-family: 'Open Sans', sans-serif;
    color: #f6f6f6;
@@ -42,6 +42,10 @@ position: relative;
        color: white;
        cursor: pointer;
        font-weight: 600;
+       transition: 0.5s;
+       &:hover {
+         transform: scale(1.1);
+       }
    }
 `
 const Assistir = styled.button `
@@ -72,8 +76,8 @@ export default function Main() {
               const response = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=245d127d88e8f74e03ac81ed84b075f2&language=pt-BR&page=1'); // Realiza a requisição
     
               if (isMounted) {
-                setFilmes(response.data.results);
-                setFundo(filmes.slice(0,1)) // Atualiza o estado dos dados
+                setFilmes(response.data.results);// Atualiza o estado dos dados
+                setFundo(filmes.slice(0,1)) 
                 console.log(response.data.results)
               }
             }
@@ -90,7 +94,7 @@ export default function Main() {
           return () => {
             isMounted = false; // Define a flag para false quando o componente é desmontado
           };
-        }, []);
+        });
        
     /* useEffect(() => {
         getFilmes()

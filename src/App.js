@@ -4,6 +4,7 @@ import Main from "./Main/main.js"
 import NavBar from "./Navbar/navbar.js"
 import CarouselComponent from "./Carousel/Carousel.js"
 import FilmesComponent from "./Filmes/filmes.js"
+import Paginas from "./Paginas/paginas.js"
 import {createGlobalStyle} from 'styled-components'
 
 const GlobalStyle = createGlobalStyle `
@@ -23,6 +24,7 @@ export default function App() {
       <NavBar />
        <CarouselComponent /> 
       <FilmesComponent />
+      <Paginas />
     </>
   )
 }
