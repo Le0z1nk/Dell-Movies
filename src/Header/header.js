@@ -31,6 +31,12 @@ margin-left: 1rem;
 `
 const NavSeriesFilmes = styled.nav `
 width: 20vw;
+li {
+    background-color: #747474;
+    border-radius: 50px;
+    text-align: center;
+    width: 8vw;
+}
 `
 const NavOpcoes = styled.nav `
 width: 17vw;
@@ -53,7 +59,7 @@ border-radius: 6px;
 border: none;
 position: relative;
 right: 1rem;
-animation: caixa 0.5s ease-in-out 1 normal both;
+animation: caixa 0.5s linear 1 normal both;
 
 @keyframes caixa {
     0% {

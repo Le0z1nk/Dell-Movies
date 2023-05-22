@@ -11,7 +11,7 @@ height: 100vh;
 `
 const ContainerMap = styled.section `
 position: relative;
-   top: 13rem;
+   top: 11rem;
    left: 7rem;
    font-family: 'Open Sans', sans-serif;
    color: #f6f6f6;
@@ -28,6 +28,10 @@ position: relative;
        font-size: 1.2rem;
        font-weight: 100;
        width: 55vw;
+   }
+   h5 {
+     font-size: 1.1rem;
+     font-weight: 100;
    }
    img {
        width: 2.3vw;
@@ -96,30 +100,12 @@ export default function Main() {
           };
         });
        
-    /* useEffect(() => {
-        getFilmes()
-    })
-
-    const getFilmes = async () => {
-        await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=245d127d88e8f74e03ac81ed84b075f2&language=pt-BR&page=1').then(resposta => {
-            const allApi = resposta.data.results.map((item) => {
-                return {
-                    ...item,
-                    poster: `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`
-                }
-            })
-            setFilmes(allApi)
-            setFundo(arrayAntiga => arrayAntiga = filmes.slice(0,1))
-            console.log(fundo)
-            
-
-        }).catch(error => alert(`desculpe, você teve um erro de requisição ${error}`))
-    } */
     return(
         <MainStyle back={fundo.map(item => `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`)}>
                 {fundo.map(item => (
                     <ContainerMap>
                         <h1>{item.title}</h1>
+                        <h5>{item.release_date.slice(0,4)}</h5>
                         <h2><img src={Estrela} alt="estrela" /> {item.vote_average}/10</h2>
                         <h4>{item.overview}</h4>
                         <Assistir>  ▶  Assistir agora</Assistir>

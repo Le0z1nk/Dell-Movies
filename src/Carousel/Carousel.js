@@ -40,6 +40,10 @@ color: #f6f6f6;
 font-size: 18px;
 margin-top: 0.5rem;
 `
+const CarouselDate = styled.h4 `
+color: #f6f6f6;
+font-weight: 100;
+`
 
 
 export default function CarouselComponent() {
@@ -66,6 +70,7 @@ export default function CarouselComponent() {
                     <div>
                         <img src={item.image} alt={item.title} />
                         <CarouselName>{item.title}</CarouselName>
+                        <CarouselDate>{item.release_date.slice(0,4)}</CarouselDate>
                     </div>
                 ))}
             </Carousel>
