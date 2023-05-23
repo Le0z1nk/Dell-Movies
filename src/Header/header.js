@@ -39,6 +39,11 @@ li {
     border-radius: 50px;
     text-align: center;
     width: 8vw;
+    :hover {
+        color: #000000;
+        transition: 0.4s;
+    }
+    
 }
 a {
     color: white;
@@ -49,8 +54,6 @@ const NavOpcoes = styled.nav `
 width: 17vw;
 ul {
     align-items: center;
-    :hover {
-    font-weight: 600;
 }
 }
 `
@@ -66,7 +69,7 @@ border-radius: 6px;
 border: none;
 position: relative;
 right: 1rem;
-animation: caixa 0.5s linear 1 normal both;
+animation: caixa 0.4s linear 1 normal both;
 
 @keyframes caixa {
     0% {
@@ -82,7 +85,10 @@ animation: caixa 0.5s linear 1 normal both;
 `
 const Login = styled.li `
 color: #f6f6f6;
-
+&:hover {
+    color: #000000;
+    transition: 0.5s;
+}
 `
 
 export default function Header() {

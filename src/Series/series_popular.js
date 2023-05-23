@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 
-const ContainerFilmes = styled.section `
+const ContainerSeries = styled.section `
 background-color: #000000;
 display: flex;
 flex-wrap: wrap;
@@ -11,7 +11,7 @@ font-family: 'Open Sans', sans-serif;
 const BoxTitle = styled.section `
 width: 100%;
 `
-const FilmesTitle = styled.h2 `
+const SeriesTitle = styled.h2 `
 color: #ffffff;
 margin-left: 3.5rem;
 font-size: 2rem;
@@ -19,7 +19,7 @@ height: 15vh;
 display: flex;
 align-items: center;
 `
-const BoxFilmes = styled.section `
+const BoxSeries = styled.section `
 width: 19.7vw;
 display: flex;
 flex-direction: column;
@@ -28,18 +28,17 @@ margin-top: 1.2rem;
 img {
     width: 85%;
     cursor: pointer;
+    transition: 0.5s;
+    &:hover {
+      transform: scale(1.05);
+    }
 }
 `
-const FilmesName = styled.h3 `
+const SeriesName = styled.h3 `
 color: #f6f6f6;
 font-size: 18px;
 text-align: center;
 margin-top: 0.3rem;
-`
-const FilmesDate = styled.h4 `
-color: #f6f6f6;
-font-weight: 100;
-font-size: 16px;
 `
 const ContainerPaginas = styled.section `
 background-color: #000000;
@@ -68,6 +67,7 @@ button {
 export default function FilmesComponent() {
     const [filmes, setFilmes] = useState([])
     const [loading, setLoading] = useState(false)
+    const [index, setIndex] = useState(0)
     useEffect(() => {
         let isMounted = true; // Flag para rastrear se o componente está montado
     
@@ -76,7 +76,7 @@ export default function FilmesComponent() {
             try {
               setLoading(true); // Define o estado de carregamento como verdadeiro
     
-              const response = await axios.get('https://api.themoviedb.org/3/tv/popular?api_key=245d127d88e8f74e03ac81ed84b075f2&language=pt-BR&page=3'); // Realiza a requisição
+              const response = await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=245d127d88e8f74e03ac81ed84b075f2&language=pt-BR&page=${index}`); // Realiza a requisição
     
               if (isMounted) {
                 setFilmes(response.data.results); // Atualiza o estado dos dados
@@ -96,28 +96,27 @@ export default function FilmesComponent() {
           return () => {
             isMounted = false; // Define a flag para false quando o componente é desmontado
           };
-        }, []); // O segundo argumento vazio [] garante que o useEffect seja executado apenas uma vez durante a montagem do componente
+        }, [index]); // O segundo argumento vazio [] garante que o useEffect seja executado apenas uma vez durante a montagem do componente
 
     return(
       <>
-        <ContainerFilmes>
+        <ContainerSeries>
             <BoxTitle>
-            <FilmesTitle>Em Alta</FilmesTitle> 
+            <SeriesTitle>Em Alta</SeriesTitle> 
             </BoxTitle>
             {filmes.map((item) => (
-                <BoxFilmes>
+                <BoxSeries>
                     <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.name} loading="lazy" />
-                    <FilmesName>{item.name}</FilmesName>
-                    <FilmesDate>{item.first_air_date.slice(0,4)}</FilmesDate>
-                </BoxFilmes>
+                    <SeriesName>{item.name}</SeriesName>
+                </BoxSeries>
             ))}
-        </ContainerFilmes>
+        </ContainerSeries>
         <ContainerPaginas>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
+        <button onClick={() =>{setIndex(prevState => prevState = 1)}}>1</button>
+        <button onClick={() =>{setIndex(prevState => prevState = 2)}}>2</button>
+        <button onClick={() =>{setIndex(prevState => prevState = 3)}}>3</button>
+        <button onClick={() =>{setIndex(prevState => prevState = 4)}}>4</button>
+        <button onClick={() =>{setIndex(prevState => prevState = 5)}}>5</button>
         </ContainerPaginas>
         </>
     )

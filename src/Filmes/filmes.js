@@ -28,6 +28,10 @@ margin-top: 1.2rem;
 img {
     width: 85%;
     cursor: pointer;
+    transition: 0.5s;
+    &:hover {
+      transform: scale(1.05);
+    }
 }
 `
 const FilmesName = styled.h3 `

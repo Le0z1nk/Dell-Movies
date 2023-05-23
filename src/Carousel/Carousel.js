@@ -11,6 +11,10 @@ font-family: 'Open Sans', sans-serif;
 img {
     width: 90%;
     cursor: pointer;
+    transition: 0.5s;
+    &:hover {
+        transform: scale(1.02);
+    }
 }
 button.rec-arrow {
     width: 4.2vw;
