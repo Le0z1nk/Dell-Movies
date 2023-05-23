@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import Logo from "../imagens/dell.png"
 import Lupa from "../imagens/search.png"
 import styled from 'styled-components'
+import Main from "../Main/main.js"
+import Series from "../Series/series_main.js"
 
 const ContainerHeader = styled.header `
 position: fixed;
@@ -36,6 +39,10 @@ li {
     border-radius: 50px;
     text-align: center;
     width: 8vw;
+}
+a {
+    color: white;
+    text-decoration: none;
 }
 `
 const NavOpcoes = styled.nav `
@@ -81,12 +88,13 @@ color: #f6f6f6;
 export default function Header() {
     const [mode, setMode] = useState(false)
     return(
+        <BrowserRouter>
         <ContainerHeader>
         <LogoSite src={Logo} alt="logo" />
         <NavSeriesFilmes>
             <ul>
-                <li>Séries</li>
-                <li>Filmes</li>
+                <li><Link to="series">Séries</Link></li>
+                <li><Link to="/">Filmes</Link></li>
             </ul>
         </NavSeriesFilmes>
         <NavOpcoes>
@@ -97,5 +105,10 @@ export default function Header() {
             </ul>
         </NavOpcoes>
         </ContainerHeader>
+        <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/series" element={<Series />} />
+        </Routes>
+        </BrowserRouter>
     )
 }

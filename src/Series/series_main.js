@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import Estrela from "../imagens/estrela.png"
-import NavBar from "../Navbar/navbar.js"
-import CarouselComponent from "../Carousel/Carousel.js"
-import FilmesComponent from "../Filmes/filmes.js"
+import NavBarSeries from "./series_navbar.js"
+import CarouselSeries from "./series_carousel.js"
+import SeriesPopular from "./series_popular.js"
 
 const MainStyle = styled.main `
 background-image: url(${props => props.back});
@@ -14,10 +14,10 @@ height: 100vh;
 `
 const ContainerMap = styled.section `
 position: relative;
-   top: 11rem;
+   top: 13rem;
    left: 7rem;
    font-family: 'Open Sans', sans-serif;
-   color: #f6f6f6;
+   color: darkblue;
    width: 70vw;
    h1 {
        font-size: 2.5rem;
@@ -66,9 +66,7 @@ color: #f6f6f6;
 margin-left: 2rem;
 `
 
-
-
-export default function Main() {
+export default function SeriesMain() {
     const [filmes, setFilmes] = useState([])
     const [fundo, setFundo] = useState([])
     const [loading, setLoading] = useState(false)
@@ -80,7 +78,7 @@ export default function Main() {
             try {
               setLoading(true); // Define o estado de carregamento como verdadeiro
     
-              const response = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=245d127d88e8f74e03ac81ed84b075f2&language=pt-BR&page=1'); // Realiza a requisição
+              const response = await axios.get('https://api.themoviedb.org/3/tv/popular?api_key=245d127d88e8f74e03ac81ed84b075f2&language=pt-BR&page=1'); // Realiza a requisição
     
               if (isMounted) {
                 setFilmes(response.data.results);// Atualiza o estado dos dados
@@ -102,14 +100,13 @@ export default function Main() {
             isMounted = false; // Define a flag para false quando o componente é desmontado
           };
         });
-       
     return(
-      <>
+        <>
         <MainStyle back={fundo.map(item => `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`)}>
                 {fundo.map(item => (
                     <ContainerMap>
-                        <h1>{item.title}</h1>
-                        <h5>{item.release_date.slice(0,4)}</h5>
+                        <h1>{item.name}</h1>
+                        <h5>{item.first_air_date.slice(0,4)}</h5>
                         <h2><img src={Estrela} alt="estrela" /> {item.vote_average}/10</h2>
                         <h4>{item.overview}</h4>
                         <Assistir>  ▶  Assistir agora</Assistir>
@@ -118,9 +115,9 @@ export default function Main() {
                 ))}
                 
             </MainStyle>
-            <NavBar />
-            <CarouselComponent />
-            <FilmesComponent />
-            </>
+            <NavBarSeries />
+            <CarouselSeries />
+            <SeriesPopular />
+        </>
     )
 }

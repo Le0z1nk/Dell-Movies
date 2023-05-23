@@ -19,10 +19,10 @@ export default function App() {
     <>
     <GlobalStyle />
       <Header />
-      <Main /> 
+      {/* <Main /> 
       <NavBar />
        <CarouselComponent /> 
-      <FilmesComponent />
+      <FilmesComponent /> */}
     </>
   )
 }
