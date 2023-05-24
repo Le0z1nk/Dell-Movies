@@ -67,7 +67,7 @@ button {
 export default function FilmesComponent() {
     const [filmes, setFilmes] = useState([])
     const [loading, setLoading] = useState(false)
-    const [index, setIndex] = useState(0)
+    const [index, setIndex] = useState(1)
     useEffect(() => {
         let isMounted = true; // Flag para rastrear se o componente está montado
     

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Routes, Route, NavLink} from 'react-router-dom'
 import Logo from "../imagens/dell.png"
 import Lupa from "../imagens/search.png"
 import styled from 'styled-components'
@@ -42,6 +42,9 @@ li {
     :hover {
         color: #000000;
         transition: 0.4s;
+    }
+    .active {
+        color: #000000;
     }
     
 }
@@ -99,8 +102,8 @@ export default function Header() {
         <LogoSite src={Logo} alt="logo" />
         <NavSeriesFilmes>
             <ul>
-                <li><Link to="series">Séries</Link></li>
-                <li><Link to="/">Filmes</Link></li>
+                <li><NavLink to="series">Séries</NavLink></li>
+                <li><NavLink to="/">Filmes</NavLink></li>
             </ul>
         </NavSeriesFilmes>
         <NavOpcoes>
