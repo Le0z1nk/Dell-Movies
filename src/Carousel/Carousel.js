@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import Carousel from 'react-elastic-carousel'
+import Carousel from 'react-carousel-elasticss'
 import styled from 'styled-components'
 
 const ContainerCarousel = styled.section `

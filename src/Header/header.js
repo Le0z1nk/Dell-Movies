@@ -8,7 +8,7 @@ import Series from "../Series/series_main.js"
 
 const ContainerHeader = styled.header `
 position: fixed;
-backgorund-color: rgba(108, 122, 137 / 1);
+background-color: rgba(108, 122, 137 / 1);
 backdrop-filter: blur(20px);
 display: flex;
 justify-content: space-between;
@@ -41,7 +41,7 @@ li {
     width: 8vw;
     :hover {
         color: #000000;
-        transition: 0.4s;
+        transition: 0.5s;
     }
     .active {
         color: #000000;
@@ -57,7 +57,6 @@ const NavOpcoes = styled.nav `
 width: 17vw;
 ul {
     align-items: center;
-}
 }
 `
 const Search = styled.img `
