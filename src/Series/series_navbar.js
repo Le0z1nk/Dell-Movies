@@ -12,14 +12,13 @@ ul {
     list-style: none;
     width: 100%;
     justify-content: space-around; 
-    :hover {
-        font-weight: 600;
-    }
 }
 li {
     font-size: 1.3rem;
     cursor: pointer;
-   
+    :hover {
+        font-weight: 600;
+    }
 }
 `
 

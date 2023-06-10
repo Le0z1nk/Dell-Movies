@@ -17,7 +17,7 @@ position: relative;
    top: 13rem;
    left: 7rem;
    font-family: 'Open Sans', sans-serif;
-   color: darkblue;
+   color: #f6f6f6;
    width: 70vw;
    h1 {
        font-size: 2.5rem;
