@@ -33,6 +33,9 @@ img {
       transform: scale(1.05);
     }
 }
+@media (min-width: 201px) and (max-width: 500px) {
+  width: 25vw;
+}
 `
 const SeriesName = styled.h3 `
 color: #f6f6f6;
@@ -61,6 +64,12 @@ button {
         background-color: #ffffff;
         color: #000000;
     }
+}
+@media (min-width: 201px) and (max-width: 500px) {
+  button {
+    width: 10vw;
+    height: 5vh;
+  }
 }
 `
 

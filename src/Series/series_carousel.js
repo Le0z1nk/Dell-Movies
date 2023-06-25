@@ -26,6 +26,9 @@ button.rec-arrow {
     justify-content: center;
     position: relative;
     bottom: 1.5rem;
+    @media (min-width: 201px) and (max-width: 500px) {
+        height: 7vh;
+    }
 }
 button.rec-dot {
     display: none;
@@ -48,7 +51,10 @@ const CarouselDate = styled.h4 `
 color: #f6f6f6;
 font-weight: 100;
 `
-
+const breakPoints = [
+    {width: 201, itemsToShow: 2, itemsToScroll: 1 },
+    {width: 500, itemsToShow: 2, itemsToScroll: 1 }
+]
 
 export default function CarouselComponent() {
     const [filmes, setFilmes] = useState([])
@@ -69,7 +75,7 @@ export default function CarouselComponent() {
     return(
         <ContainerCarousel>
             <CarouselTitle>Últimos lançamentos</CarouselTitle>
-            <Carousel itemsToShow={5} itemsToScroll={3}>
+            <Carousel itemsToShow={5} itemsToScroll={3} breakPoints={breakPoints}>
                 {filmes.map((item)=>(
                     <div>
                         <img src={item.image} alt={item.name} />

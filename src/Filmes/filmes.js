@@ -33,12 +33,18 @@ img {
       transform: scale(1.05);
     }
 }
+@media (min-width: 201px) and (max-width: 500px) {
+  width: 25vw;
+}
 `
 const FilmesName = styled.h3 `
 color: #f6f6f6;
 font-size: 18px;
 text-align: center;
 margin-top: 0.3rem;
+@media (min-width: 201px) and (max-width: 500px) {
+  font-size: 17px;
+}
 `
 const FilmesDate = styled.h4 `
 color: #f6f6f6;
@@ -66,6 +72,12 @@ button {
         background-color: #ffffff;
         color: #000000;
     }
+}
+@media (min-width: 201px) and (max-width: 500px) {
+  button {
+    width: 10vw;
+    height: 5vh;
+  }
 }
 `
 

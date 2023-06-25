@@ -14,7 +14,7 @@ height: 100vh;
 `
 const ContainerMap = styled.section `
 position: relative;
-   top: 11rem;
+   top: 5.5rem;
    left: 7rem;
    font-family: 'Open Sans', sans-serif;
    color: #f6f6f6;
@@ -53,6 +53,28 @@ position: relative;
        &:hover {
          transform: scale(1.1);
        }
+   }
+   @media (min-width: 201px) and (max-width: 500px) {
+     left: 2rem;
+     
+     h1 {
+       font-size: 2rem;
+       width: 80vw;
+       
+     }
+     h5 {
+       font-size: 1.3rem;
+     }
+     img {
+       width: 6.5vw;
+     }
+     h4 {
+       width: 90vw;
+       font-size: 1.1rem;
+     }
+     button {
+       width: 30vw;
+     }
    }
 `
 const Assistir = styled.button `

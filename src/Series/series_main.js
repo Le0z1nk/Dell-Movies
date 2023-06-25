@@ -54,6 +54,18 @@ position: relative;
          transform: scale(1.1);
        }
    }
+   @media (min-width: 201px) and (max-width: 500px) {
+  left: 2rem;
+  h5 {
+    font-size: 1.3rem;
+  }
+  img {
+    width: 6.5vw;
+  }
+  button {
+    width: 30vw;
+  }
+}
 `
 const Assistir = styled.button `
 background-color: #d53a00;

@@ -10,13 +10,18 @@ ul {
     display: flex;
     list-style: none;
     width: 100%;
-    justify-content: space-around;   
+    justify-content: space-around; 
+    
 }
 li {
     font-size: 1.3rem;
     cursor: pointer;
    :hover {
         font-weight: 600;
+    }
+    @media (min-width: 201px) and (max-width: 500px) {
+         font-size: 0.8rem;
+         display: none;
     }
 }
 `

@@ -5,6 +5,7 @@ import Lupa from "../imagens/search.png"
 import styled from 'styled-components'
 import Main from "../Main/main.js"
 import Series from "../Series/series_main.js"
+import Menu from "./menu.js"
 
 const ContainerHeader = styled.header `
 position: fixed;
@@ -26,10 +27,16 @@ color: #ffffff;
 li {
     cursor: pointer;
 }
+@media (min-width: 201px) and (max-width: 500px) {
+ width: 100%;  
+}
 `
 const LogoSite = styled.img `
 height: 10vh;
 margin-left: 1rem;
+@media (min-width: 201px) and (max-width: 500px) {
+   
+}
 
 `
 const NavSeriesFilmes = styled.nav `
@@ -38,25 +45,30 @@ li {
     background-color: #747474;
     border-radius: 50px;
     text-align: center;
-    width: 8vw;
-    :hover {
-        color: #000000;
-        transition: 0.5s;
-    }
-    .active {
-        color: #000000;
-    }
-    
+    width: 8vw; 
 }
 a {
     color: white;
     text-decoration: none;
+    :hover {
+        color: #000000;
+        transition: 0.5s;
+    }
+    &.active {
+        color: #000000;
+    }
+}
+@media (min-width: 201px) and (max-width: 500px) {
+   display: none;
 }
 `
 const NavOpcoes = styled.nav `
 width: 17vw;
 ul {
     align-items: center;
+}
+@media (min-width: 201px) and (max-width: 500px) {
+   display: none;
 }
 `
 const Search = styled.img `
@@ -71,25 +83,19 @@ border-radius: 6px;
 border: none;
 position: relative;
 right: 1rem;
-animation: caixa 0.4s linear 1 normal both;
-
-@keyframes caixa {
-    0% {
-        width: 10%;
-    }
-    50% {
-        width: 30%;
-    }
-    100% {
-        width: 50%;
-    }
-}
 `
 const Login = styled.li `
 color: #f6f6f6;
+transition: 0.5s;
 &:hover {
-    color: #000000;
+    color: #747474;
     transition: 0.5s;
+}
+`
+const DivMenu = styled.div `
+display: none;
+@media (min-width: 201px) and (max-width: 500px) {
+   display: flex;
 }
 `
 
@@ -112,6 +118,9 @@ export default function Header() {
                 <Login>Login</Login>
             </ul>
         </NavOpcoes>
+        <DivMenu>
+            <Menu />
+        </DivMenu>
         </ContainerHeader>
         <Routes>
             <Route path="/" element={<Main />} />

@@ -20,6 +20,9 @@ li {
         font-weight: 600;
     }
 }
+@media (min-width: 201px) and (max-width: 500px) {
+  display: none;
+}
 `
 
 
