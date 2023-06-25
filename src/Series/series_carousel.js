@@ -53,7 +53,8 @@ font-weight: 100;
 `
 const breakPoints = [
     {width: 201, itemsToShow: 2, itemsToScroll: 1 },
-    {width: 500, itemsToShow: 2, itemsToScroll: 1 }
+    {width: 500, itemsToShow: 2, itemsToScroll: 1 },
+    {width: 600, itemsToShow: 5, itemsToScroll: 3 }
 ]
 
 export default function CarouselComponent() {
