@@ -76,6 +76,19 @@ position: relative;
        width: 30vw;
      }
    }
+   @media (min-width: 501px) and (max-width: 900px) {
+   top: 13.5rem;
+   h5 {
+     font-size: 1.3rem;
+   }
+   h4 {
+     font-size: 1.4rem;
+   }
+   button {
+     width: 25vw;
+     height: 6vh;
+   }
+  }
 `
 const Assistir = styled.button `
 background-color: #d53a00;

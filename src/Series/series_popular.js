@@ -71,6 +71,12 @@ button {
     height: 5vh;
   }
 }
+@media (min-width: 501px) and (max-width: 900px) {
+   button {
+    width: 5vw;
+    height: 4vh;
+   }
+  }
 `
 
 export default function FilmesComponent() {

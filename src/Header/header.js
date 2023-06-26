@@ -28,7 +28,7 @@ li {
     cursor: pointer;
 }
 @media (min-width: 201px) and (max-width: 500px) {
- width: 100%;  
+ width: 100%;
 }
 `
 const LogoSite = styled.img `
@@ -36,6 +36,9 @@ height: 10vh;
 margin-left: 1rem;
 @media (min-width: 201px) and (max-width: 500px) {
    
+}
+@media (min-width: 501px) and (max-width: 900px) {
+   height: 7.5vh;
 }
 
 `
@@ -61,6 +64,13 @@ a {
 @media (min-width: 201px) and (max-width: 500px) {
    display: none;
 }
+@media (min-width: 501px) and (max-width: 900px) {
+    width: 35vw;
+   li {
+       width: 14vw;
+       font-size: 1.8rem;
+   }
+}
 `
 const NavOpcoes = styled.nav `
 width: 17vw;
@@ -70,16 +80,22 @@ ul {
 @media (min-width: 201px) and (max-width: 500px) {
    display: none;
 }
+@media (min-width: 501px) and (max-width: 900px) {
+   width: 22vw;
+}
 `
 const Search = styled.img `
 width: 3.5vw;
 padding-top: 10px;
 cursor: pointer;
+@media (min-width: 501px) and (max-width: 900px) {
+ width: 5vw;  
+}
 `
 const Caixa = styled.input `
 display: ${props => props.show};
 width: 8vw;
-border-radius: 6px;
+border-radius: 5px;
 border: none;
 position: relative;
 right: 1rem;
@@ -90,6 +106,9 @@ transition: 0.5s;
 &:hover {
     color: #747474;
     transition: 0.5s;
+}
+@media (min-width: 501px) and (max-width: 900px) {
+   font-size: 1.7rem;
 }
 `
 const DivMenu = styled.div `

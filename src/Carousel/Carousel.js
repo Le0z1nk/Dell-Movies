@@ -29,6 +29,10 @@ button.rec-arrow {
     @media (min-width: 201px) and (max-width: 500px) {
         height: 7vh;
     }
+    @media (min-width: 501px) and (max-width: 900px) {
+   height: 5.5vh;
+   bottom: 3rem;
+}
 }
 button.rec-dot {
     display: none;
