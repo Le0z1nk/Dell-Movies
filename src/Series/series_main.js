@@ -92,6 +92,7 @@ export default function SeriesMain() {
     const [filmes, setFilmes] = useState([])
     const [fundo, setFundo] = useState([])
     const [loading, setLoading] = useState(false)
+    const [index] = useState(1)
     useEffect(() => {
         let isMounted = true; // Flag para rastrear se o componente está montado
     
@@ -100,12 +101,11 @@ export default function SeriesMain() {
             try {
               setLoading(true); // Define o estado de carregamento como verdadeiro
     
-              const response = await axios.get('https://api.themoviedb.org/3/tv/popular?api_key=245d127d88e8f74e03ac81ed84b075f2&language=pt-BR&page=1'); // Realiza a requisição
+              const response = await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=245d127d88e8f74e03ac81ed84b075f2&language=pt-BR&page=${index}`); // Realiza a requisição
     
               if (isMounted) {
                 setFilmes(response.data.results);// Atualiza o estado dos dados
-                setFundo(filmes.slice(0,1)) 
-                console.log(response.data.results)
+                setFundo(response.data.results.slice(0, 1)) 
               }
             }
             catch (error) {
@@ -121,7 +121,7 @@ export default function SeriesMain() {
           return () => {
             isMounted = false; // Define a flag para false quando o componente é desmontado
           };
-        });
+        }, [index]);
     return(
         <>
         <MainStyle back={fundo.map(item => `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`)}>
